@@ -1,0 +1,13 @@
+# Dependencies and generated build output
+**/node_modules/
+client/dist/
+
+# Environment files (keep safe templates)
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Runtime data is persisted separately from source control
+server/data/site-data.json
+server/data/site-data.json.tmp

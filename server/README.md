@@ -12,6 +12,9 @@ npm run dev
 
 The API listens on port `3001` by default. The frontend's Vite development
 server proxies `/api` to this port.
+For the Render service Root Directory and commands, see
+[`../DEPLOYMENT.md`](../DEPLOYMENT.md). Render must use the repository root
+because the API imports the shared catalog from `client/src`.
 
 ## Endpoints
 
@@ -57,7 +60,7 @@ multi-instance production.
 | Variable | Purpose |
 | --- | --- |
 | `PORT` | Listening port; defaults to `3001`. |
-| `CLIENT_ORIGIN` | Comma-separated allowed browser origins; defaults to `http://localhost:5173`. |
+| `CLIENT_ORIGIN` | Comma-separated allowed browser origins; defaults to `http://localhost:5173` locally and is required in production. |
 | `DATA_FILE` | JSON persistence path; defaults to `server/data/site-data.json`. |
 
 There is no admin authentication or admin API. Do not expose booking

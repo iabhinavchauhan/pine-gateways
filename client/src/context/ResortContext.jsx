@@ -77,6 +77,9 @@ export function ResortProvider({ children }) {
     let active = true
     apiRequest('/reviews')
       .then(({ reviews: serverReviews }) => {
+        if (!Array.isArray(serverReviews)) {
+          throw new Error('The reviews API returned an invalid response.')
+        }
         if (active) {
           setReviews(serverReviews)
           setReviewsError('')

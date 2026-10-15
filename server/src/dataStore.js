@@ -34,7 +34,20 @@ async function ensureStore() {
 
 async function readStore() {
   await ensureStore()
-  return JSON.parse(await readFile(dataFile, 'utf8'))
+  const store = JSON.parse(await readFile(dataFile, 'utf8'))
+  if (!store || typeof store !== 'object' || Array.isArray(store)) {
+    throw new Error('The site data file must contain a JSON object.')
+  }
+
+  for (const collection of ['reviews', 'inquiries', 'bookings', 'feedback']) {
+    if (store[collection] === undefined) {
+      store[collection] = []
+    } else if (!Array.isArray(store[collection])) {
+      throw new Error(`The site data collection "${collection}" must be an array.`)
+    }
+  }
+
+  return store
 }
 
 async function updateStore(update) {

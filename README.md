@@ -43,6 +43,8 @@ npm test
 ```
 
 The production frontend is written to `client/dist`.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the exact Cloudflare Pages and Render
+settings, CORS configuration, and persistent JSON disk setup.
 
 ## Locations and property data
 
@@ -113,9 +115,9 @@ recommended for high-volume or multi-instance production deployments.
 | Variable | Used by | Purpose |
 | --- | --- | --- |
 | `PORT` | API | Listening port; defaults to `3001`. |
-| `CLIENT_ORIGIN` | API | Comma-separated allowed browser origins; defaults to `http://localhost:5173`. |
+| `CLIENT_ORIGIN` | API | Comma-separated allowed browser origins; defaults to `http://localhost:5173` locally and is required in production. |
 | `DATA_FILE` | API | JSON data-file path; defaults to `server/data/site-data.json`. |
-| `VITE_API_URL` | Frontend build | API base URL; defaults to `/api`. Set this at build time when hosting the API on another origin. |
+| `VITE_API_URL` | Frontend build | Required in production; set to the Render service's `/api` URL. Local development defaults to the Vite `/api` proxy. |
 
 No API secrets are required by the current application. Do not put private
 credentials in `VITE_*` variables; frontend build variables are public.

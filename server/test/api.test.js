@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { mkdtemp, readFile, rm } from 'node:fs/promises'
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import { after, before, test } from 'node:test'
@@ -66,6 +66,19 @@ test('health, feedback and API not-found responses are available', async () => {
   const missing = await request('/api/not-a-route')
   assert.equal(missing.response.status, 404)
   assert.deepEqual(missing.body, { error: 'API endpoint not found.' })
+})
+
+test('CORS allows the configured frontend origin and rejects unknown origins', async () => {
+  const allowed = await request('/api/health', {
+    headers: { Origin: 'http://localhost:5173' },
+  })
+  assert.equal(allowed.response.headers.get('access-control-allow-origin'), 'http://localhost:5173')
+
+  const blocked = await request('/api/health', {
+    headers: { Origin: 'https://unapproved.example' },
+  })
+  assert.equal(blocked.response.status, 403)
+  assert.match(blocked.body.error, /origin is not allowed/)
 })
 
 test('reviews can be submitted, filtered and persisted', async () => {
@@ -189,4 +202,33 @@ test('booking estimates apply only explicitly configured eligible customer disco
   )
   assert.equal(getStayQuote(stay, 'Test room', '2027-02-10', '2027-02-14').discountPercent, 6)
   assert.equal(getStayQuote(stay, 'Test room', '2027-02-10', '2027-02-10'), null)
+})
+
+test('reviews endpoint handles a legacy store without replacing its existing data', async () => {
+  const file = process.env.DATA_FILE
+  const store = JSON.parse(await readFile(file, 'utf8'))
+  const savedBookings = store.bookings
+  delete store.reviews
+  await writeFile(file, JSON.stringify(store, null, 2), 'utf8')
+
+  const reviews = await request('/api/reviews')
+  assert.equal(reviews.response.status, 200)
+  assert.deepEqual(reviews.body.reviews, [])
+
+  const feedback = await request('/api/feedback', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: 'Legacy store test',
+      email: 'legacy@example.com',
+      rating: 5,
+      message: 'Existing data remains available.',
+    }),
+  })
+  assert.equal(feedback.response.status, 201)
+
+  const migratedStore = JSON.parse(await readFile(file, 'utf8'))
+  assert.deepEqual(migratedStore.reviews, [])
+  assert.deepEqual(migratedStore.bookings, savedBookings)
+  assert.equal(migratedStore.feedback[0].name, 'Legacy store test')
 })

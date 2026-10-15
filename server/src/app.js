@@ -11,9 +11,16 @@ import { getStayQuote } from '../../client/src/utils/pricing.js'
 import { readStore, updateStore } from './dataStore.js'
 
 const app = express()
-const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
+const clientOrigin = process.env.CLIENT_ORIGIN?.trim()
+
+if (process.env.NODE_ENV === 'production' && !clientOrigin) {
+  throw new Error('CLIENT_ORIGIN must be set to the Cloudflare Pages origin in production.')
+}
+
+const allowedOrigins = (clientOrigin || 'http://localhost:5173')
   .split(',')
   .map((origin) => origin.trim())
+  .filter(Boolean)
 
 app.use(cors({
   origin(origin, callback) {
