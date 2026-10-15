@@ -1,7 +1,7 @@
 export const homestays = [
   {
     slug: 'sakar-homestay',
-    name: 'Sakar Homestay',
+    name: 'SAMTHAR Hill-Stay',
     location: 'Mairung, Kalimpong',
     tagline: 'A peaceful village home with open cloud views, warm hosting and room to slow down.',
     description:
@@ -33,7 +33,7 @@ export const homestays = [
   },
   {
     slug: 'vivanta-homestay',
-    name: 'Vivanta Homestay',
+    name: 'Suviksha Homestay',
     location: 'Damsang Valley, Kalimpong',
     tagline: 'Valley-facing rooms and wide skies, with a generous lawn for unhurried mornings.',
     description:
@@ -65,7 +65,7 @@ export const homestays = [
   },
   {
     slug: 'green-leaf-homestay',
-    name: 'Green Leaf Homestay',
+    name: 'Asher Homestay',
     location: 'Pradhan Gaon, Kalimpong',
     tagline: 'A simple, comfortable village stay tucked among pine trees and forest paths.',
     description:
@@ -146,7 +146,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.9,
     image: 'https://loremflickr.com/1200/800/food?random=b5738e3e',
-    servedAt: ['Sakar Homestay', 'Vivanta Homestay', 'Green Leaf Homestay'],
+    servedAt: ['SAMTHAR Hill-Stay', 'Suviksha Homestay', 'Asher Homestay'],
   },
   {
     id: 'forest-spice-stew',
@@ -155,7 +155,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.8,
     image: 'https://loremflickr.com/1200/800/food?random=ea3bfec4',
-    servedAt: ['Sakar Homestay'],
+    servedAt: ['SAMTHAR Hill-Stay'],
   },
   {
     id: 'cedar-steamed-trout',
@@ -164,7 +164,7 @@ export const foodItems = [
     type: 'Non-Veg',
     rating: 4.9,
     image: 'https://loremflickr.com/1200/800/food?random=fc0e52e7',
-    servedAt: ['Sakar Homestay'],
+    servedAt: ['SAMTHAR Hill-Stay'],
   },
   {
     id: 'lotus-rice-pilaf',
@@ -173,7 +173,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.7,
     image: 'https://loremflickr.com/1200/800/food?random=c666679e',
-    servedAt: ['Sakar Homestay'],
+    servedAt: ['SAMTHAR Hill-Stay'],
   },
   {
     id: 'mountain-berry-crisp',
@@ -182,7 +182,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.6,
     image: 'https://loremflickr.com/1200/800/food?random=02cd9d3e',
-    servedAt: ['Sakar Homestay'],
+    servedAt: ['SAMTHAR Hill-Stay'],
   },
   {
     id: 'herb-noodle-bowl',
@@ -191,7 +191,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.7,
     image: 'https://loremflickr.com/1200/800/food?random=02cd9d3e',
-    servedAt: ['Vivanta Homestay'],
+    servedAt: ['Suviksha Homestay'],
   },
   {
     id: 'toasted-millet-porridge',
@@ -200,7 +200,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.6,
     image: 'https://loremflickr.com/1200/800/food?random=4c2013a2',
-    servedAt: ['Vivanta Homestay'],
+    servedAt: ['Suviksha Homestay'],
   },
   {
     id: 'ginger-simmered-greens',
@@ -209,7 +209,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.7,
     image: 'https://loremflickr.com/1200/800/food?random=2b0a6d8a',
-    servedAt: ['Vivanta Homestay'],
+    servedAt: ['Suviksha Homestay'],
   },
   {
     id: 'smoky-paneer-skewers',
@@ -218,7 +218,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.8,
     image: 'https://loremflickr.com/1200/800/food?random=aa4c4dc7',
-    servedAt: ['Vivanta Homestay'],
+    servedAt: ['Suviksha Homestay'],
   },
   {
     id: 'berry-yogurt-parfait',
@@ -227,7 +227,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.6,
     image: 'https://loremflickr.com/1200/800/dessert?random=078b025b',
-    servedAt: ['Vivanta Homestay'],
+    servedAt: ['Suviksha Homestay'],
   },
   {
     id: 'cloudberry-salad',
@@ -236,7 +236,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.7,
     image: 'https://loremflickr.com/1200/800/salad?random=1298361f',
-    servedAt: ['Green Leaf Homestay'],
+    servedAt: ['Asher Homestay'],
   },
   {
     id: 'spiced-lamb-chops',
@@ -245,7 +245,7 @@ export const foodItems = [
     type: 'Non-Veg',
     rating: 4.9,
     image: 'https://loremflickr.com/1200/800/food?random=078b025b',
-    servedAt: ['Green Leaf Homestay'],
+    servedAt: ['Asher Homestay'],
   },
   {
     id: 'cedar-smoked-fish',
@@ -254,7 +254,7 @@ export const foodItems = [
     type: 'Non-Veg',
     rating: 4.8,
     image: 'https://loremflickr.com/1200/800/seafood?random=89306559',
-    servedAt: ['Green Leaf Homestay'],
+    servedAt: ['Asher Homestay'],
   },
   {
     id: 'chamomile-panna-cotta',
@@ -263,7 +263,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.7,
     image: 'https://loremflickr.com/1200/800/dessert?random=08c6c8a6',
-    servedAt: ['Green Leaf Homestay'],
+    servedAt: ['Asher Homestay'],
   },
   {
     id: 'wild-mushroom-risotto',
@@ -272,7 +272,7 @@ export const foodItems = [
     type: 'Veg',
     rating: 4.8,
     image: 'https://loremflickr.com/1200/800/food?random=02cd9d3e',
-    servedAt: ['Green Leaf Homestay'],
+    servedAt: ['Asher Homestay'],
   },
 ]
 

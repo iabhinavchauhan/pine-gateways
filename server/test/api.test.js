@@ -39,10 +39,14 @@ test('catalog endpoints expose homestays, food, blog posts and gallery', async (
   ])
 
   assert.equal(stays.body.homestays.length, 3)
+  assert.deepEqual(
+    stays.body.homestays.map((homestay) => homestay.name),
+    ['SAMTHAR Hill-Stay', 'Suviksha Homestay', 'Asher Homestay'],
+  )
   assert.ok(food.body.foodItems.length > 0)
   assert.equal(blog.body.blogPosts.length, 3)
   assert.ok(gallery.body.galleryImages.length > 0)
-  assert.ok(filteredFood.body.foodItems.every((item) => item.servedAt.includes('Vivanta Homestay')))
+  assert.ok(filteredFood.body.foodItems.every((item) => item.servedAt.includes('Suviksha Homestay')))
   assert.equal(stay.body.homestay.slug, 'vivanta-homestay')
 })
 

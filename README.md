@@ -51,9 +51,9 @@ settings, CORS configuration, and persistent JSON disk setup.
 The three homestay locations are defined with the property records in
 `client/src/data/resortData.js` and are used by the homepage location filter:
 
-- Mairung, Kalimpong — Sakar Homestay
-- Damsang Valley, Kalimpong — Vivanta Homestay
-- Pradhan Gaon, Kalimpong — Green Leaf Homestay
+- Mairung, Kalimpong — SAMTHAR Hill-Stay
+- Damsang Valley, Kalimpong — Suviksha Homestay
+- Pradhan Gaon, Kalimpong — Asher Homestay
 
 Do not add, rename, merge, or reassign these locations without the business
 owner's direction. Room rates, property images, amenities, descriptions, and
